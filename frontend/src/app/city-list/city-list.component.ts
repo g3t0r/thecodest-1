@@ -11,31 +11,52 @@ import {Page} from "../page.model";
 })
 export class CityListComponent implements OnInit, OnDestroy {
 
-  constructor(private cityService: CityService) { }
-
+  constructor(private cityService: CityService) {
+  }
 
 
   ngOnInit(): void {
-      this.cityService.getPage().subscribe(obs => {
-        if(obs.ok) {
-          this.currentPage = obs.body
-        }
-      });
+    this.cityService.getPage().subscribe(obs => {
+      if (obs.ok) {
+        this.currentPage = obs.body
+      }
+    });
   }
 
   ngOnDestroy() {
   }
 
   public searchControl = new FormControl('');
-  public currentPage: Page<City> | any = null;
-  private subs: Subscription = new Subscription();
+  public currentPage: Page<City> | null = null;
+  private pageNumber = 0;
 
   public submit(): void {
-    this.cityService.getPage(0, 10, this.searchControl.value!!).subscribe(obs => {
-      if(obs.ok) {
-        this.currentPage = obs.body
+    this.cityService.getPage(this.pageNumber, 10, this.searchControl.value!!).subscribe(obs => {
+      if (obs.ok) {
+        this.currentPage = obs.body;
+        this.pageNumber = this.currentPage?.number!;
       }
     });
+  }
+
+  public first(): void {
+    this.pageNumber = 0
+    this.submit();
+  }
+
+  public prev(): void {
+    this.pageNumber--;
+    this.submit()
+  }
+
+  public next(): void {
+    this.pageNumber++;
+    this.submit();
+  }
+
+  public last(): void {
+    this.pageNumber = this.currentPage?.totalPages! - 1;
+    this.submit();
   }
 
 }

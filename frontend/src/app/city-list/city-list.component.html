@@ -5,10 +5,19 @@
   <button type="submit" (click)="submit()">hehe</button>
 
   <div class="pagination">
-    <button>&lt;&lt;</button>
-    <button>&lt;</button>
-    <span>&nbsp;1&nbsp;</span>
-    <button>&gt;</button>
-    <button>&gt;&gt;</button>
+    <button (click)="first()" [disabled]="currentPage?.first">&lt;&lt;</button>
+    <button (click)="prev()" [disabled]="currentPage?.first">&lt;</button>
+    <span>&nbsp;{{currentPage?.number}}&nbsp;</span>
+    <button (click)="next()" [disabled]="currentPage?.last">&gt;</button>
+    <button (click)="last()" [disabled]="currentPage?.last">&gt;&gt;</button>
   </div>
+
+  <table *ngIf="currentPage" class="city-list">
+      <tr *ngFor="let city  of currentPage!!.content!!" class="city-list-row">
+        <td>{{city.id}}</td>
+        <td>{{city.name}}</td>
+        <td><img [src]="city.photo"/></td>
+      </tr>
+  </table>
+
 </div>
