@@ -1,8 +1,10 @@
 <link rel="stylesheet" href="city-list.component.css">
 <div class="city-list-container">
   <h1>City list</h1>
-  <input (keydown.enter)="submit()" [formControl]="searchControl"/>
-  <button type="submit" (click)="submit()">hehe</button>
+  <div class="city-list-search-container">
+    <input (keydown.enter)="submit()" [formControl]="searchControl"/>
+    <button type="submit" (click)="submit()">search</button>
+  </div>
 
   <div class="pagination">
     <button (click)="first()" [disabled]="currentPage?.first">&lt;&lt;</button>
