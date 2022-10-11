@@ -1,0 +1,12 @@
+.city-list-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+}
