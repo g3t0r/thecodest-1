@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="city-edit.component.css">
+<div *ngIf="city" class="city-edit-container">
+  <div class="city-edit-input">
+    <span>ID</span>
+    <input [disabled]="true" [value]="city.id"/>
+  </div>
+  <div class="city-edit-input">
+    <span>Name</span>
+    <input [value]="city.name" [formControl]="nameFC"/>
+  </div>
+  <div class="city-edit-input">
+    <span>Photo</span>
+    <input [value]="city.photo" [formControl]="photoFC"/>
+  </div>
+  <button (click)="save()">Save</button>
+</div>

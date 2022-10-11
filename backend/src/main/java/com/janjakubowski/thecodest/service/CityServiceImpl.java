@@ -41,6 +41,9 @@ public class CityServiceImpl implements CityService {
       throw new ValidationException("Photo can't be null or empty");
     }
 
+    city.setName(replacement.getName());
+    city.setPhoto(replacement.getPhoto());
+
     return cityRepository.save(city);
   }
 
@@ -73,6 +76,11 @@ public class CityServiceImpl implements CityService {
   @Override
   public long getCityCount() {
     return cityRepository.count();
+  }
+
+  @Override
+  public City getById(Integer id) {
+    return getCityOrThrow(id);
   }
 
   City getCityOrThrow(Integer id) {

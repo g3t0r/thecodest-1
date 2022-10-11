@@ -18,4 +18,6 @@ public interface CityService {
   City createCity(CityCreation city);
 
   long getCityCount();
+
+  City getById(Integer id);
 }

@@ -13,7 +13,7 @@
   </div>
 
   <table *ngIf="currentPage" class="city-list">
-      <tr *ngFor="let city  of currentPage!!.content!!" class="city-list-row">
+      <tr (click)="navigate(city.id)" *ngFor="let city  of currentPage!!.content!!" class="city-list-row">
         <td>{{city.id}}</td>
         <td>{{city.name}}</td>
         <td><img [src]="city.photo"/></td>

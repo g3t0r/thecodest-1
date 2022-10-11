@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Page} from "./page.model";
+import {UpdateCityModelRequest} from "./update-city-model.request";
+import * as http from "http";
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +26,12 @@ export class CityService {
     });
   }
 
+  public getById(id: number) {
+    return this.http.get<City>(`cities/${id}`, {observe: "response"});
+  }
+
+  public update(id: number, update: UpdateCityModelRequest) {
+    return this.http.put(`cities/${id}`, update, {observe: "response"})
+  }
 
 }

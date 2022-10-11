@@ -7,11 +7,13 @@ import { CityListComponent } from './city-list/city-list.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {ApiInterceptor} from "./ApiInterceptor";
+import { CityEditComponent } from './city-edit/city-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CityListComponent
+    CityListComponent,
+    CityEditComponent
   ],
   imports: [
     BrowserModule,

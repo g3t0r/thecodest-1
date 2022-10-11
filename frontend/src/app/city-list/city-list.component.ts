@@ -3,6 +3,7 @@ import {FormBuilder, FormControl} from "@angular/forms";
 import {CityService} from "../city.service";
 import {Subject, Subscription} from "rxjs";
 import {Page} from "../page.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-city-list',
@@ -11,7 +12,9 @@ import {Page} from "../page.model";
 })
 export class CityListComponent implements OnInit, OnDestroy {
 
-  constructor(private cityService: CityService) {
+  constructor(private cityService: CityService,
+              private router: Router
+              ) {
   }
 
 
@@ -31,7 +34,7 @@ export class CityListComponent implements OnInit, OnDestroy {
   private pageNumber = 0;
 
   public submit(): void {
-    this.cityService.getPage(this.pageNumber, 10, this.searchControl.value!!).subscribe(obs => {
+    this.cityService.getPage(this.pageNumber, 10, this.searchControl.value!).subscribe(obs => {
       if (obs.ok) {
         this.currentPage = obs.body;
         this.pageNumber = this.currentPage?.number!;
@@ -59,4 +62,8 @@ export class CityListComponent implements OnInit, OnDestroy {
     this.submit();
   }
 
+  navigate(id: number) {
+    console.log('id', id);
+    this.router.navigateByUrl(`/cities/` + id);
+  }
 }

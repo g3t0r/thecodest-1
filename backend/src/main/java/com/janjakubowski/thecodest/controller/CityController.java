@@ -47,4 +47,9 @@ public class CityController {
     return cityService.replaceCity(id, replacement);
   }
 
+  @GetMapping("{id}")
+  public City getCity(@PathVariable Integer id) {
+    return cityService.getById(id);
+  }
+
 }
