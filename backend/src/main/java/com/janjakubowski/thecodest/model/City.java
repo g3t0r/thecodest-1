@@ -1,12 +1,18 @@
 package com.janjakubowski.thecodest.model;
 
-import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity(name = "city")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class City {
+
   @Id
   private Integer id;
 
@@ -15,54 +21,4 @@ public class City {
 
   private String photo;
 
-
-  public City(Integer id, String name, String photo) {
-    this.id = id;
-    this.name = name;
-    this.photo = photo;
-  }
-
-  protected City() {
-  }
-
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getPhoto() {
-    return photo;
-  }
-
-  public void setPhoto(String photo) {
-    this.photo = photo;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    City city = (City) o;
-    return id.equals(city.id) && name.equals(city.name) && photo.equals(city.photo);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, name, photo);
-  }
 }

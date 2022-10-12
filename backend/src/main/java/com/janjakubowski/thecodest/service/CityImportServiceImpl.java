@@ -30,20 +30,17 @@ public class CityImportServiceImpl implements
   @Override
   public void importCities() {
 
-    if(isImportAlreadyDone()) {
+    if (isImportAlreadyDone()) {
       return;
     }
 
     File file = new File(filePath);
-
-    try {
-
-      BufferedReader reader = new BufferedReader(new FileReader(file));
+    try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
 
       String line;
       reader.readLine(); // skipping header
 
-      while((line = reader.readLine()) != null) {
+      while ((line = reader.readLine()) != null) {
         cityService.createCity(mapToCity(line));
       }
 
@@ -55,7 +52,7 @@ public class CityImportServiceImpl implements
   private CityCreation mapToCity(String line) {
 
     String[] separated = line.split(",");
-    if(separated.length != 3) {
+    if (separated.length != 3) {
       throw CsvImportException.incorrectColumnNumber(separated.length);
     }
     return new CityCreation(
