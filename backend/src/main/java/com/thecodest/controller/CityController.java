@@ -1,9 +1,8 @@
-package com.janjakubowski.thecodest.controller;
+package com.thecodest.controller;
 
-import com.janjakubowski.thecodest.model.City;
-import com.janjakubowski.thecodest.model.CityUpdate;
-import com.janjakubowski.thecodest.service.CityService;
-import java.util.Optional;
+import com.thecodest.model.City;
+import com.thecodest.model.CityUpdate;
+import com.thecodest.service.CityService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,9 +26,12 @@ public class CityController {
 
   @GetMapping
   public Page<City> getCities(
-      @RequestParam Optional<String> search,
+      @RequestParam(required = false) String search,
       Pageable pageable
   ) {
+    if(search == null) {
+      return cityService.getCities(pageable);
+    }
     return cityService.getCities(search, pageable);
   }
 

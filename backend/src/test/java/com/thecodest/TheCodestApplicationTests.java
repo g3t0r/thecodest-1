@@ -1,4 +1,4 @@
-package com.janjakubowski.thecodest;
+package com.thecodest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

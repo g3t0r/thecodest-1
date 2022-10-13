@@ -1,4 +1,4 @@
-package com.janjakubowski.thecodest.service;
+package com.thecodest.service;
 
 public interface CityImportService {
   void importCities();

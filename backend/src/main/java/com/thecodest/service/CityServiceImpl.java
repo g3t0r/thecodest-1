@@ -1,12 +1,11 @@
-package com.janjakubowski.thecodest.service;
+package com.thecodest.service;
 
-import com.janjakubowski.thecodest.exception.EntityNotFoundException;
-import com.janjakubowski.thecodest.exception.ValidationException;
-import com.janjakubowski.thecodest.model.City;
-import com.janjakubowski.thecodest.model.CityCreation;
-import com.janjakubowski.thecodest.model.CityUpdate;
-import com.janjakubowski.thecodest.repository.CityRepository;
-import java.util.Optional;
+import com.thecodest.exception.EntityNotFoundException;
+import com.thecodest.exception.ValidationException;
+import com.thecodest.model.City;
+import com.thecodest.model.CityCreation;
+import com.thecodest.model.CityUpdate;
+import com.thecodest.repository.CityRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -21,12 +20,13 @@ public class CityServiceImpl implements CityService {
   }
 
   @Override
-  public Page<City> getCities(Optional<String> name, Pageable pageable) {
-    if(name.isPresent()) {
-      return cityRepository.findByNameIgnoreCaseStartsWith(name.get(), pageable);
-    } else {
-      return cityRepository.findAll(pageable);
-    }
+  public Page<City> getCities(String name, Pageable pageable) {
+      return cityRepository.findByNameIgnoreCaseStartsWith(name, pageable);
+  }
+
+  @Override
+  public Page<City> getCities(Pageable pageable) {
+    return cityRepository.findAll(pageable);
   }
 
   @Override

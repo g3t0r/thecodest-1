@@ -1,6 +1,6 @@
-package com.janjakubowski.thecodest.repository;
+package com.thecodest.repository;
 
-import com.janjakubowski.thecodest.model.City;
+import com.thecodest.model.City;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

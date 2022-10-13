@@ -1,7 +1,7 @@
-package com.janjakubowski.thecodest.service;
+package com.thecodest.service;
 
-import com.janjakubowski.thecodest.exception.CsvImportException;
-import com.janjakubowski.thecodest.model.CityCreation;
+import com.thecodest.exception.CsvImportException;
+import com.thecodest.model.CityCreation;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

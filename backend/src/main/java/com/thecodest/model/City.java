@@ -1,4 +1,4 @@
-package com.janjakubowski.thecodest.model;
+package com.thecodest.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

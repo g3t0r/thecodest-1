@@ -1,4 +1,4 @@
-package com.janjakubowski.thecodest.exception;
+package com.thecodest.exception;
 
 public class CsvImportException extends RuntimeException{
   private CsvImportException(String message) {

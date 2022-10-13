@@ -1,4 +1,4 @@
-package com.janjakubowski.thecodest.exception;
+package com.thecodest.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.client.HttpStatusCodeException;

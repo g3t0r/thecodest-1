@@ -1,6 +1,6 @@
-package com.janjakubowski.thecodest;
+package com.thecodest;
 
-import com.janjakubowski.thecodest.service.CityImportService;
+import com.thecodest.service.CityImportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
